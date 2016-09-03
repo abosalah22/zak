@@ -6,7 +6,7 @@ if ( msg.text ) then
 
   if ( msg.to.type == "user" ) then 
 
-     return "- أهـلآ وسـهلا بـك في البوت ⇣\n- Welcome to BOT ⇣\n- لـمزيـد مـن المعلومات راسـل المطور ⇣\n- For more information Contact Da aboshosho98 \n- DEV - @Iabo_shosho98 ️✴️♋️\n- Channel   - aboaloshbot" 
+     return "للتحدث مع المطور ♔͡ مہٰٰٖہۣۚﹻهہٰٰٖنہۣۚﹻد ͡♔┇ℳr┇|┋ ادخل على المعرف 🌝🎈 @M_1_11          كروب الدعم الخاص بالبوت   🔕✔️  #      https://telegram.me/joinchat/B9DGez8Y7rj1jdeeCYAmkg" 
   end 
 end 
 
