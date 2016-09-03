@@ -82,9 +82,6 @@ return [[  ❣ setadmin : لرفع اداري للمجموعه
 🔸➖🔹➖🔸➖🔹➖🔸
 
 
- Version :1.0
-#Dev : @abo_shosho98
-#Dev_bot : @aboaloshbot
 ]]
 end
 
