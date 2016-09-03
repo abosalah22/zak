@@ -1,52 +1,50 @@
---[[ 
-$ :) 
--- - ( #ابو_شهوده ) - -- 
-$ :) 
--- - ( @abo_shosho98 ) - -- 
-$ :) 
---Channel-( @aboaloshbot )-- 
-$ :) 
-]]-- 
 do 
-local function iq_abs(msg,matches) 
-local reply_id = msg['id'] 
+local function axis(msg,matches) 
+    if matches[1] == "chat_add_user"  then 
+     local text = 'اهلا 😊👋 بك عزيزي في المجموعة 👥🔕'..'\n'..'\n' 
+     ..'المعلومات 📋 الخاصة بك 🔷'..'\n' 
+    ..'📌 اسمك :  '..msg.action.user.print_name..'\n' 
+    ..'📌 معرفك : @'..(msg.action.user.username or "لا يوجد")..'\n' 
+    ..'💭 الايدي : '..msg.action.user.id..'\n' 
+    ..'📱رقم الهاتف : '..(msg.action.user.phone or "لا يوجد")..'\n' 
+    ..'➖➖➖➖➖ـ'..'\n' 
+    ..'📌 اسم المجموعة : '..msg.to.title..'\n' 
+    ..'💭 ايدي المجموعة : '..msg.to.id..'\n' 
+    ..'➖➖➖➖➖ـ'..'\n' 
+    ..'✝ ضافك : '..msg.from.print_name..'\n' 
+    ..'✝ معرفة : @'..(msg.from.username or "لا يوجد")..'\n' 
+..' ايدية 🆔 : '..msg.from.id..'\n' 
+    ..'📱 رقم هاتفةة : '..(msg.from.phone or "لا يوجد")..'\n' 
+    ..'➖➖➖➖➖ـ'..'\n' 
+    ..'📅 التاريخ : '..os.date('!%A, %B %d, %Y*\n', timestamp) 
+    ..'🕚 الوقت : '..os.date(' %T*', os.time())..'\n' 
+     ..'➖➖➖➖➖ـ'..'\n' 
 
-    if matches[1] == "chat_add_user"  then -- Channel @DEV_PROX 
-      return '🚏 - Welcome to groups'..'\n' 
-..'🚁 - #name_add : '..(msg.from.first_name or ' ')..'\n' 
-..'🚀 - #user_add : @'..msg.from.username..'\n' 
-..'⛽️ - #ID : '..msg.from.id..'\n' 
-..'🛰 - #gp_name : '..msg.to.title..'\n' 
-..'🛳 - #gp_ID : '..msg.to.id..'\n' 
-..'🚦 - Channel : @DEV_PROX'..'\n' 
-..'⏱ - #time : '..os.date(' %T', os.time())..'\n' 
-..'📆 - : '.. os.date('!%A %B:%d:%Y\n', timestamp)..'\n' 
+     return reply_msg(msg.id, text, ok_cb, false) 
+     end 
+    if matches[1] == "chat_add_user_link" then 
+        local text = 'اهلا 😊👋 بك عيزي في المجموعة 👥🔕'..'\n'..'\n' 
+     ..'المعلومات 📋 الخاصة بك 🔷'..'\n' 
+    ..'📌 اسمك :  '..msg.from.print_name..'\n' 
+    ..'📌 معرفك : @'..(msg.from.username or "لا يوجد")..'\n' 
+    ..'💭 الايدي : '..msg.from.id..'\n' 
+    ..'📱رقم الهاتف : '..(msg.from.phone or "لا يوجد")..'\n' 
+    ..'➖➖➖➖➖ـ'..'\n' 
+    ..'📌 اسم المجموعة : '..msg.to.title..'\n' 
+    ..'💭 ايدي المجموعة : '..msg.to.id..'\n' 
+    ..'➖➖➖➖➖ـ'..'\n' 
+    ..'📅 التاريخ : '..os.date('!%A, %B %d, %Y*\n', timestamp) 
+    ..'🕚 الوقت : '..os.date(' %T*', os.time())..'\n' 
+     ..'➖➖➖➖➖ـ'..'\n' 
 
-    elseif matches[1] == "chat_add_user_link" then 
-      return '🚏 - Welcome to groups'..'\n' 
-..'🚁 - #name : '..(msg.from.first_name or ' ')..'\n' 
-..'🚀 - #user : @'..msg.from.username..'\n' 
-..'⛽️ - #ID : '..msg.from.id..'\n' 
-..'🛰 - #gp_name : '..msg.to.title..'\n' 
-..'🛳 - #gp_ID : '..msg.to.id..'\n' 
-..'🚦 - Channel : @DEV_PROX'..'\n' 
-..'⏱ - #time : '..os.date(' %T', os.time())..'\n' 
-..'📆 - : '.. os.date('!%A %B:%d:%Y\n', timestamp)..'\n' 
-    end 
-
-    if matches[1] == "chat_del_user"  then 
-       local bye_name = msg.action.user.first_name 
-       return '🚀🚏 وداعـﮩـاً '..bye_name 
-   end 
+        return reply_msg(msg.id, text, ok_cb, false) 
+  end 
 end 
-
 return { 
     patterns = { 
         "^!!tgservice (chat_add_user)$", 
         "^!!tgservice (chat_add_user_link)$", 
-        "^!!tgservice (chat_del_user)$", 
     }, 
- run = iq_abs, 
+ run = axis 
 } 
-end 
--- BY - @IQ_ABS 
+end
